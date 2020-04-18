@@ -1,0 +1,75 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define MAX 1000
+class Stack
+{
+    int top;
+public:
+    int a[MAX];
+    Stack()
+    {
+        top=-1;
+    }
+    bool push(int x);
+    int pop();
+    int peek();
+    bool isEmpty();
+};
+bool Stack::push(int x)
+{
+    if(top>=(MAX-1))
+    {
+        cout<<"Stack overflow";
+        return false;
+    }
+    else
+    {
+        top ++;
+        a[top]=x;
+        cout<<x<<" pushed into stack\n";
+        return true;
+    }
+}
+int Stack::pop()
+{
+    if(top<0)
+    {
+        cout<<"Stack underflow";
+        return 0;
+    }
+    else
+    {
+       int x=a[top];
+       top--;
+        return x;
+    }
+}
+int Stack::peek()
+{
+    if(top<0)
+    {
+        cout<<"Stack is empty";
+        return 0;
+    }
+    else
+    {
+        int x=a[top];
+        return x;
+    }
+}
+bool Stack::isEmpty()
+{
+    return (top<0);
+}
+int main()
+{
+    class Stack s1;
+    s1.push(10);
+    s1.push(20);
+    s1.push(30);
+    cout<<s1.peek()<<" is top element\n";
+    cout<<s1.pop()<<" popped from stack\n";
+    cout<<s1.peek()<<" is new top element\n";
+
+    return 0;
+}
